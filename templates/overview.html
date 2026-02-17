@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} <!-- necessary to connect to CSS in django -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVD Übersicht</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <nav id="sidenav">
+        <ul>
+            <li><a href="{% url 'main' %}"><i class="fa fa-home"></i><span>Home</span></a></li>
+            <li><a href="{% url 'overview' %}"><i class="fa-solid fa-compact-disc"></i><span>DVD Übersicht</span></a></li>
+            <li><a href="{% url 'rooms' %}"><i class="fa-solid fa-address-card"></i><span>Räume</span></a></li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
