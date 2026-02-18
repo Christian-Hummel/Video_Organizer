@@ -1,8 +1,9 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import update_session_auth_hash
+from django.urls import reverse_lazy
 from django.contrib import messages
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from .models import Movie
 
@@ -44,7 +45,11 @@ def process_movie_entry(request):
 
         movie = Movie(title=title, year=year, description=description, director=director,type=type, picture_description=picture_description,picture=picture)
 
-        movie.save()
+        if not Movie.objects.filter(title=request.POST.get('title')).first():
+            print("ok")
+        else:
+            messages.error(request, 'Dieser Film ist bereits gespeichert')
+            return HttpResponseRedirect(reverse_lazy('dvd'))
     
 
         return render(request, "movie_success.html")
