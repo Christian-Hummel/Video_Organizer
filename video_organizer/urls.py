@@ -9,6 +9,8 @@ urlpatterns = [
     path("", views.index, name="main"),
     path("overview/", views.overview, name="overview"),
     path("rooms/", views.rooms, name="rooms"),
+    path("dvd", views.dvd, name="dvd"),
+    path("movie/add", views.process_movie_entry, name="process_movie_entry"),
 ]
 
 
