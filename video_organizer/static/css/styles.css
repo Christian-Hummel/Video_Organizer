@@ -10,6 +10,15 @@ body {
   overflow: hidden;
 }
 
+h1 {
+    font-size: 24px;
+    color: #0063a3;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
 
 nav {
   width: 250px;
@@ -93,4 +102,26 @@ article {
   nav.active {
     left: 0;
   }
+}
+
+.btn-blue {
+    background-color: #0063a3;
+    color: white;
+}
+
+button.active {
+    background-color: gray;
+}
+
+.message {
+    letter-spacing: .011rem;
+    word-break: break-word;
+    margin: 0;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.765;
+    color: #000;
+    text-align: left;
+    background-color: #fff;
 }
