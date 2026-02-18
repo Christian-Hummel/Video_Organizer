@@ -11,6 +11,8 @@
 </head>
 <body>
 
+    
+
     <nav id="sidenav">
         <ul>
             <li><a href="{% url 'main' %}"><i class="fa fa-home"></i><span>Home</span></a></li>
@@ -20,6 +22,21 @@
     </nav>
 
     <main>
+        <div id="msg" role="alert">
+        {% include 'messages.html' %}
+
+        {% block content %} {% endblock content %}
+        </div>
+
+        <script type="text/javascript">
+            setTimeout(()=>{
+
+                const msg = document.getElementById('msg')
+
+                msg.style.display = 'none';
+
+            },2000);
+        </script>
 
         <div class="container">
             <h1 class="text-center">Neuen Film hinzufügen</h1>
@@ -60,6 +77,8 @@
     
 
     </main>
+
+
     
 </body>
 </html>
