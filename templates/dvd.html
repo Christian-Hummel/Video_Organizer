@@ -8,6 +8,11 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!--Bootstrap-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -25,7 +30,6 @@
         <div id="msg" role="alert">
         {% include 'messages.html' %}
 
-        {% block content %} {% endblock content %}
         </div>
 
         <script type="text/javascript">
@@ -44,31 +48,69 @@
         
         <br>
 
-        <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center">
         <form method="post" action="{% url 'process_movie_entry' %}" enctype="multipart/form-data" class="w-50">
             {% csrf_token %}
             <div class="mb-3">
-                <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+                <label for="title">Titel</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Titel" required>
             </div>
             <div class="mb-3">
+                <label for="year">Erscheinungsjahr</label>
                 <input type="number" class="form-control" id="year" name="year" placeholder="2000" required>
             </div>
             <div class="mb-3">
+                <label for="genre">Genre</label>
+                <select class="form-control" id="genre" name="genre" required>
+                    <option value="Abenteuer" selected>Abenteuer</option>
+                    <option value="Action">Action</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Doku">Doku</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Komödie">Komödie</option>
+                    <option value="Krimi">Krimi</option>
+                    <option value="Liebesfilm">Liebesfilm</option>
+                    <option value="Musik">Musik</option>
+                    <option value="Musical">Musical</option>
+                    <option value="Science-Fiction">Science-Fiction</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Western">Western</option>
+                </select>
+            <div class="mb-3">
+                <label for="description">Beschreibung</label>
                 <textarea class="form-control" id="description" name="description" rows="5" cols="33" required></textarea>
             </div>
             <div class="mb-3">
+                <label for="director">Regisseur</label>
                 <input type="text" class="form-control" id="director" name="director" placeholder="Director" required>
             </div>
             <div class="mb-3">
+                <label for="runtime">Laufzeit in Minuten</label>
+                <input type="number" class="form-control" id="runtime" name="runtime" placeholder="130" required>
+            </div>
+            <div class="mb-3">
+                <label for="type">Typ</label>
                 <select class="form-control" id="type" name="type" required>
                     <option value="DVD" selected>DVD</option>
                     <option value="Blu-Ray">Blu-Ray</option>
                 </select>
             </div>
+            <div>
+                <label for="viewed">Gesehen</label>
+                <select class="form-control" id="viewed" name="viewed" required>
+                    <option value="Ja">Ja</option>
+                    <option value="Nein" selected>Nein</option>
+                </select>
+            </div>
             <div class="mb-3">
+                <label for="picture_description">Bild Beschreibung</label>
                 <input type="text" class="form-control" id="picture_description" name="picture_description" placeholder="Picture description">
             </div>
             <div class="mb-3">
+                <label for="picture">Dateipfad</label>
                 <input type="file" class="form-control" id="picture" name="picture">
             </div>
             <button type="submit" class="btn btn-primary w-50">Film hinzufügen</button>
@@ -77,7 +119,6 @@
     
 
     </main>
-
 
     
 </body>
