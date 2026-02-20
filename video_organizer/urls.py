@@ -11,6 +11,8 @@ urlpatterns = [
     path("rooms/", views.rooms, name="rooms"),
     path("dvd", views.dvd, name="dvd"),
     path("movie/add", views.process_movie_entry, name="process_movie_entry"),
+    path("dvd/update/<int:id>", views.update_movie_entry, name="update_movie_entry"),
+    path("dvd/update", views.dvd_update, name="dvd_update")
 ]
 
 
