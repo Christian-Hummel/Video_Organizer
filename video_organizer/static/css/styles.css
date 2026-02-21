@@ -25,9 +25,25 @@ a.button {
     text-decoration: none;
 }
 
+.addbutton {
+  width: 8%;
+  margin-left: 10px;
+  padding: 5px;
+  background-color: #0063a3;
+  color: white;
+  border-radius: 7px;
+}
+
 .bluebutton {
   padding: 5px;
   background-color: #0063a3;
+  color: white;
+  border-radius: 7px;
+}
+
+.redbutton {
+  padding: 5px;
+  background-color: #e81010;
   color: white;
   border-radius: 7px;
 }
