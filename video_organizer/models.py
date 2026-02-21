@@ -3,7 +3,7 @@ from django.db import models
 class Movie(models.Model):
     class Mtype(models.TextChoices):
         DVD = 'dvd', 'DVD'
-        Blu = 'blu-ray', 'Blu-Ray'
+        BLU = 'blu-ray', 'Blu-Ray'
     class Genre(models.TextChoices):
         ADVENTURE = 'abenteuer', 'Abenteuer'
         ACTION = 'action', 'Action'
@@ -40,3 +40,34 @@ class Movie(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.year} - {self.description} - {self.director} - {self.type}"
+
+
+class Room(models.Model):
+    id = models.IntegerField(null=False, primary_key=True)
+    name = models.CharField(max_length=50, null=False)
+    level = models.CharField(max_length=50, null=False, default="Keller")
+
+
+class Furniture(models.Model):
+    class Ftype(models.TextChoices):
+        DESK = 'desk', 'Desk'
+        DRAWER = 'drawer', 'Drawer'
+        SHELF = 'shelf', 'Shelf'
+    id = models.IntegerField(null=False, primary_key=True)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, null=False)
+    type = models.CharField(max_length=10, choices=Ftype.choices, default=Ftype.SHELF)
+    levels = models.IntegerField(null=False, default=0)
+    position = models.CharField(max_length=10, null=False)
+
+
+
+
+class Storage(models.Model):
+    id = models.IntegerField(null=False, primary_key=True)
+    object = models.ForeignKey(Furniture, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    level = models.IntegerField(null=False)
+    row = models.IntegerField(null=False)
+    home = models.BooleanField(null=False, default=False)
+    present = models.BooleanField(null=False, default=False)
