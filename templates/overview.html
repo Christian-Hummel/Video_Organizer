@@ -25,6 +25,19 @@
     </nav>
 
     <main>
+        <div id="msg" role="alert">
+        {% include 'messages.html' %}
+        </div>
+
+        <script type="text/javascript">
+            setTimeout(()=>{
+
+                const msg = document.getElementById('msg')
+
+                msg.style.display = 'none';
+
+            },2000);
+        </script>
         <header>
             <h1>Film Übersicht</h1>
         </header>
@@ -46,7 +59,7 @@
             
 
 
-            {% if report.picture.url is not 0 %}
+            {% if movie.picture %}
             <img
             class="movie-image"
             src="{{ movie.picture.url }}"
