@@ -56,8 +56,8 @@ def process_movie_entry(request):
         if not Movie.objects.filter(title=request.POST.get('title')).first():
             movie.save()
         else:
-            messages.error(request, 'Dieser Film ist bereits gespeichert')
-            return HttpResponseRedirect(reverse_lazy('dvd'))
+            messages.error(request, "Dieser Film ist bereits gespeichert")
+            return HttpResponseRedirect(reverse_lazy("dvd"))
     
 
         return render(request, "movie_success.html")
@@ -74,7 +74,7 @@ def update_movie_entry(request, id):
     context["movie"] = movie
 
 
-    return render(request, 'dvdupdate.html', context)
+    return render(request, "dvdupdate.html", context)
 
 
 def dvd_update(request):
@@ -101,8 +101,8 @@ def dvd_update(request):
             movie.picture = new_picture
 
         if not request.FILES.get('picture') and movie.title == new_title and movie.year == int(new_year) and movie.genre == new_genre and movie.description == new_description and movie.director == new_director and movie.runtime == int(new_runtime) and movie.type == new_type and movie.viewed == new_viewed and movie.picture_description == new_picture_description:
-            messages.error(request, 'Diese Daten sind bereits gespeichert')
-            url = reverse('update_movie_entry', kwargs={'id': id})
+            messages.error(request, "Diese Daten sind bereits gespeichert")
+            url = reverse("update_movie_entry", kwargs={'id': id})
             return HttpResponseRedirect(url)
 
 
@@ -119,9 +119,21 @@ def dvd_update(request):
         movie.save()
     
 
-        messages.success(request, 'Änderungen erfolgreich gespeichert')
+        messages.success(request, "Änderungen erfolgreich gespeichert")
 
-        url = reverse('update_movie_entry', kwargs={'id': id})
+        url = reverse("update_movie_entry", kwargs={'id': id})
         return HttpResponseRedirect(url)
     else:
         return HttpResponse("Invalid request method!")
+    
+
+def delete_movie(request, id):
+    
+    movie = Movie.objects.get(id=id)
+
+    movie.delete()
+
+    messages.success(request, f"{movie.title} wurde erfolgreich gelöscht")
+
+    url = reverse("overview.html")
+    return HttpResponseRedirect(url)
