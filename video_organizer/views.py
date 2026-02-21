@@ -60,7 +60,10 @@ def process_movie_entry(request):
             return HttpResponseRedirect(reverse_lazy("dvd"))
     
 
-        return render(request, "movie_success.html")
+        messages.success(request, "Der Film wurde erfolgreich gespeichert")
+
+        url = reverse("dvd")
+        return HttpResponseRedirect(url)
     else:
         return HttpResponse("Invalid request method!")
     
@@ -135,5 +138,5 @@ def delete_movie(request, id):
 
     messages.success(request, f"{movie.title} wurde erfolgreich gelöscht")
 
-    url = reverse("overview.html")
+    url = reverse("overview")
     return HttpResponseRedirect(url)
