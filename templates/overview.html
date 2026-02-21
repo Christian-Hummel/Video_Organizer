@@ -56,12 +56,17 @@
 
             <br>
             <br>
-            <button class="bluebutton" onclick="parent.location='/overview'">Mehr Informationen</button><button class="bluebutton" onclick="parent.location='/dvd/update/{{ movie.id }}'">Daten Bearbeiten</button>
+            <button class="bluebutton" onclick="parent.location='/overview'">Mehr Informationen</button>
+            <button class="bluebutton" onclick="parent.location='/dvd/update/{{ movie.id }}'">Daten Bearbeiten</button>
+            <button class="redbutton" onclick="parent.location='/dvd/delete/{{ movie.id }}'">löschen</button>
 
         </div>
         <br>
         {% endfor %}
         </div>
+
+
+        <button class="addbutton position-relative d-flex align-items-center me-3 py-2 px-4" onclick="parent.location='/dvd'">Film Hinzufügen</button>
         
 
         
