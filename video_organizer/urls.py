@@ -13,7 +13,8 @@ urlpatterns = [
     path("movie/add", views.process_movie_entry, name="process_movie_entry"),
     path("dvd/update/<int:id>", views.update_movie_entry, name="update_movie_entry"),
     path("dvd/update", views.dvd_update, name="dvd_update"),
-    path("dvd/delete/<int:id>", views.delete_movie, name="delete_movie")
+    path("dvd/delete/<int:id>", views.delete_movie, name="delete_movie"),
+    path("dvd/details/<int:id>", views.movie_details, name="movie_details")
 ]
 
 
