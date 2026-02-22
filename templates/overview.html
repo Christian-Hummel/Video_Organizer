@@ -56,6 +56,7 @@
             <p>Genre: {{movie.genre}}</p>
             <p>Typ: {{movie.type}}</p>
             <p>Laufzeit: {{movie.runtime}}</p>
+            <p>Gesehen: {{movie.viewed}}</p>
             
 
 
@@ -69,7 +70,7 @@
 
             <br>
             <br>
-            <button class="bluebutton" onclick="parent.location='/overview'">Mehr Informationen</button>
+            <button class="bluebutton" onclick="parent.location='/dvd/details/{{ movie.id }}'">Mehr Informationen</button>
             <button class="bluebutton" onclick="parent.location='/dvd/update/{{ movie.id }}'">Daten Bearbeiten</button>
             <button class="redbutton" onclick="parent.location='/dvd/delete/{{ movie.id }}'">löschen</button>
 
