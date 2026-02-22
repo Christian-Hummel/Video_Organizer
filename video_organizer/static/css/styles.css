@@ -163,9 +163,57 @@ article {
     text-align: center;
 }
 
+.detail-container {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 400px;
+    width: 40%;
+    height: 800px;
+    padding: 10px;
+    border: 3px solid black;
+}
+
+.detail-container p {
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.button-container {
+    position: absolute;
+    top: -35.5px;
+    left: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.button-container button {
+    vertical-align: top;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    height: 30px;
+
+}
+
+button.active {
+    background-color: gray;
+}
+
+.details h1 {
+  text-align: center;
+}
+
 .movie-image {
   position: relative;
-  width: 50%; /* or any custom size */
+  width: 50%;
   height: 50%; 
   object-fit: contain;
+}
+
+.detail-image{
+  position: relative;
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+  float: right;
 }
