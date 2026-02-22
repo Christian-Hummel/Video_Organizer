@@ -140,3 +140,14 @@ def delete_movie(request, id):
 
     url = reverse("overview")
     return HttpResponseRedirect(url)
+
+
+def movie_details(request, id):
+
+    context = {}
+
+    movie = Movie.objects.get(id=id)
+
+    context["movie"] = movie
+
+    return render(request, "moviedetail.html", context)
