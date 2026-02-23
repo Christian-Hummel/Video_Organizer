@@ -147,7 +147,7 @@ article {
 }
 
 .overview-container {
-    position: absolute;
+    position: relative;
     margin-left: 30%;
     width: 20%;
     padding: 10px;
@@ -160,7 +160,7 @@ article {
 }
 
 .overview-header h1 {
-    text-align: center;
+    margin-left: 32%;
 }
 
 .detail-container {
